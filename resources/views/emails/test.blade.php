@@ -9,10 +9,14 @@
 </head>
 <body>
     <h1>
-        MJ|website
+        MJ|website||Email Title
     </h1>
     <p>
-        This is a email for test!
+        This is a email for test! This is email Body!
     </p>
+    <ul>
+        <li>{{$name}}</li>
+        <li>{{$year}}</li>
+    </ul>
 </body>
 </html>

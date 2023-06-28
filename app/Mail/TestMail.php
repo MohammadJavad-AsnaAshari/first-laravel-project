@@ -31,7 +31,7 @@ class TestMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'This is Email Test Subject',
+            subject: 'Email Subject',
         );
     }
 
