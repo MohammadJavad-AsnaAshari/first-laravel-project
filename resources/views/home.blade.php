@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("content")
-    <h1>Index Page</h1>
+    <h1>Home Page</h1>
     <!-- Featured blog post-->
 
     @foreach($articles as $article)

@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
+//        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
         $articles = Article::orderBy("id", "desc")->get();
         return view("home", compact("articles"));
     }
