@@ -11,6 +11,10 @@
             <p class="card-text">{{$article->about}}</p>
             <a class="btn btn-primary" href="">Read more →</a>
         </div>
+        <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">Start Bootstrap</a>
+        </div>
     </div>
 @endsection
 

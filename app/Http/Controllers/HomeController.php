@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
 //        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
         $articles = Article::orderBy("id", "desc")->get();
-        return view("home", compact("articles"));
+        return view("index", compact("articles"));
     }
 
     public function about()

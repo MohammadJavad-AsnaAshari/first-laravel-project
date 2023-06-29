@@ -24,9 +24,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        if ($_GET) {
-            dd($_GET);
-        }
+//        if ($_GET) {
+//            dd($_GET);
+//        }
         return view("admin.articles.create");
     }
 
@@ -70,7 +70,6 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, Article $article)
     {
         $validate_data = $request->validated();
-
         $article->update($validate_data);
 
         return back();

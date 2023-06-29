@@ -2,10 +2,6 @@
 @section("content")
     <h2>Create Article :)</h2>
 
-    {{--    @php--}}
-    {{--        dd($errors->all())--}}
-    {{--    @endphp--}}
-
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>

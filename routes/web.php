@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get("/home", "App\\Http\\Controllers\\HomeController@home");
-Route::get("article/{article}", "App\\Http\\Controllers\\ArticleController@single");
+Route::get("article/{article:slug}", "App\\Http\\Controllers\\ArticleController@single");
 Route::get("/about", "App\\Http\\Controllers\\HomeController@about");
 Route::get("/check/database", function () {
     $articles = Article::all(); //Eloquent Methods
@@ -45,9 +45,10 @@ Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->group(fun
 ////    Route::post("/articles/create", function (Request $request) {
 ////        dd($request->all());
 ////    });
-//    Route::get("/articles/{article}/edit", "ArticleController@edit");
+//    Route::get("/articles/{articleSlug}/edit", "ArticleController@edit");
 //    Route::put("/articles/{article}/edit", "ArticleController@update");
 //    Route::delete("/articles/{article}", "ArticleController@destroy");
+
     Route::resource("articles", "ArticleController")->except(["show"]);
 });
 

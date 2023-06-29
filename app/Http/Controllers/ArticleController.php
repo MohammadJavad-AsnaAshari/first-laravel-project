@@ -9,6 +9,7 @@ class ArticleController extends Controller
 {
     public function single(Article $article)
     {
+//        dd($article);
         return view("single", compact("article"));
     }
 }
