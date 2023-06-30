@@ -9,6 +9,17 @@
                 <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
             </ul>
+            <ul>
+                @if(auth()->check())
+                    <a href="/admin/articles" class="btn btn-info">Admin</a>
+                    <form action="{{route("logout")}}" method="post">
+                        @csrf
+                        <button class="btn btn-danger">logout</button>
+                    </form>
+                @else
+                    <a href="{{route("login")}}" class="btn btn-info">login</a>
+                @endif
+            </ul>
         </div>
     </div>
 </nav>

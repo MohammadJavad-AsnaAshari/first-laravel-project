@@ -35,7 +35,8 @@ Route::get("/factory/create", function () {
     $articles = Article::factory(5)->create();
     dd($articles);
 });
-Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->group(function () {
+
+Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->middleware("auth")->group(function () {
 //    Route::get("/articles", "ArticleController@index");
 //    Route::get("/articles/create", "ArticleController@create");
 //    Route::post("/articles/create", "ArticleController@store");
@@ -55,3 +56,6 @@ Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->group(fun
 //Route::get("articles", function () {
 //    return view("admin.articles.create");
 //});
+
+Auth::routes();
+

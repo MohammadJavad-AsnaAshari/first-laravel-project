@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\TestMail;
 use App\Models\Article;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
     public function home()
     {
+        dd(auth()->user());
+        dd(auth()->check());
 //        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
         $articles = Article::orderBy("id", "desc")->get();
         return view("index", compact("articles"));
@@ -21,7 +20,7 @@ class HomeController extends Controller
         return view("about");
     }
 
-    public function content()
+    public function contact()
     {
 
     }
