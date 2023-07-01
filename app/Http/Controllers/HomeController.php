@@ -8,8 +8,8 @@ class HomeController extends Controller
 {
     public function home()
     {
-        dd(auth()->user());
-        dd(auth()->check());
+//        dd(auth()->user());
+//        dd(auth()->check());
 //        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
         $articles = Article::orderBy("id", "desc")->get();
         return view("index", compact("articles"));

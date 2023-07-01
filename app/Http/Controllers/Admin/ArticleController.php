@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth")->only(["create", "destroy"]);
+    }
+
     /**
      * Display a listing of the resource.
      */

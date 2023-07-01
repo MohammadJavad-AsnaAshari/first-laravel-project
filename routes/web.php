@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 Route::get("/home", "App\\Http\\Controllers\\HomeController@home");
 Route::get("article/{article:slug}", "App\\Http\\Controllers\\ArticleController@single");
-Route::get("/about", "App\\Http\\Controllers\\HomeController@about");
+Route::get("/about", "App\\Http\\Controllers\\HomeController@about")->middleware("guest");
 Route::get("/check/database", function () {
     $articles = Article::all(); //Eloquent Methods
     $articles = Article::orderBy("id")->get(); //Query Builder Methods
@@ -36,7 +36,7 @@ Route::get("/factory/create", function () {
     dd($articles);
 });
 
-Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->middleware("auth")->group(function () {
+Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->group(function () {
 //    Route::get("/articles", "ArticleController@index");
 //    Route::get("/articles/create", "ArticleController@create");
 //    Route::post("/articles/create", "ArticleController@store");
