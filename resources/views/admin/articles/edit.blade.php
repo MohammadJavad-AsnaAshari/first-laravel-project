@@ -1,3 +1,4 @@
+@php use App\Models\Category; @endphp
 @extends("layouts.master")
 @section("content")
     <h2>Edit Article :)</h2>
@@ -20,6 +21,20 @@
             <input type="text" name="title" class="form-control" value="{{$article->title}}">
             <br>
         </div>
+
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select name="categories[]" class="form-control" multiple>
+                @foreach(Category::all() as $category)
+                    <option
+                        value="{{$category->id}}" {{ in_array($category->id, $article->categories()->pluck("id")->toArray()) ? "selected" : ""}}>{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <br>
+
         <div class="form-group">
             <label for="body">Body: </label>
             <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{$article->body}}</textarea>

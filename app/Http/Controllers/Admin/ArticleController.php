@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth")->only(["create", "destroy"]);
+        $this->middleware("auth");
     }
 
     /**
@@ -40,7 +40,7 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        return $request->all();
+//        return $request->all();
         $validate_data = $request->validated();
 
 //        Article::create([
@@ -50,10 +50,12 @@ class ArticleController extends Controller
 //            "body" => $validate_data["body"]
 //        ]);
 
-        auth()->user()->articles()->create([
+        $article = auth()->user()->articles()->create([
             "title" => $validate_data["title"],
             "body" => $validate_data["body"]
         ]);
+
+        $article->categories()->attach($validate_data["categories"]);
 
         return redirect("/admin/articles/create");
     }
@@ -82,6 +84,11 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, Article $article)
     {
         $validate_data = $request->validated();
+
+        $article->categories()->detach();
+        $article->categories()->attach($validate_data["categories"]);
+        $article->categories()->sync($validate_data["categories"]);
+
         $article->update($validate_data);
 
         return back();

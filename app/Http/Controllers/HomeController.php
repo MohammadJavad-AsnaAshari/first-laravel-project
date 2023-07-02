@@ -20,12 +20,14 @@ class HomeController extends Controller
 //        $articles->user;
 //
 //        $articles = Article::find(29);
+//        return $articles->categories()->attach([1,2,3]);
+//        return $articles->categories()->detach([2, 3]);
+//
 //        return $articles->categories()->get();
-////        return $articles->categories()->pluck("name");
+//        return $articles->categories()->pluck("name");
 //
 //        $categories = Category::find(1);
 //        return $categories->articles()->get();
-
 
 //        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
         $articles = Article::orderBy("id", "desc")->get();

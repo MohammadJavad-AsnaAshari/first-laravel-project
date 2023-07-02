@@ -36,7 +36,7 @@ Route::get("/factory/create", function () {
     dd($articles);
 });
 
-Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->middleware("auth")->group(function () {
+Route::prefix("/admin")->namespace("App\\Http\\Controllers\\Admin\\")->group(function () {
 //    Route::get("/articles", "ArticleController@index");
 //    Route::get("/articles/create", "ArticleController@create");
 //    Route::post("/articles/create", "ArticleController@store");

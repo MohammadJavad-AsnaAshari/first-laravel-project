@@ -12,6 +12,11 @@
             <a class="btn btn-primary" href="">Read more →</a>
         </div>
         <div class="card-footer text-muted">
+            <ul>
+                @foreach($article->categories()->get() as $category)
+                    <li>{{$category->name}}</li>
+                @endforeach
+            </ul>
             Posted on January 1, 2017 by
             <a href="#">Start Bootstrap</a>
         </div>
