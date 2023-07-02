@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->references("id")->on("users")->onDelete("cascade");
+            $table->foreignId("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade");
             $table->string("title", 50);
             $table->string("slug", 100);
             $table->text("body");

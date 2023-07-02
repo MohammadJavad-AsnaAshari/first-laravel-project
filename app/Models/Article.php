@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 class Article extends Model
@@ -12,7 +13,7 @@ class Article extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ["title", "slug", "body"];
+    protected $fillable = ["user_id","title", "slug", "body"];
 
 //    public function getRouteKeyName()
 //    {
@@ -27,5 +28,10 @@ class Article extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -40,11 +40,18 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
+//        return auth()->user()->id;
         $validate_data = $request->validated();
 
-        Article::create([
+//        Article::create([
+//            "user_id" => auth()->user()->id,
+//            "title" => $validate_data["title"],
+////            "slug" => $validate_data["title"],
+//            "body" => $validate_data["body"]
+//        ]);
+
+        auth()->user()->articles()->create([
             "title" => $validate_data["title"],
-//            "slug" => $validate_data["title"],
             "body" => $validate_data["body"]
         ]);
 
