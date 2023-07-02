@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
 class Article extends Model
@@ -13,7 +14,7 @@ class Article extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ["user_id","title", "slug", "body"];
+    protected $fillable = ["user_id", "title", "slug", "body"];
 
 //    public function getRouteKeyName()
 //    {
@@ -33,5 +34,10 @@ class Article extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

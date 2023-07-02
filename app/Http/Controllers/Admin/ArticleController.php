@@ -40,7 +40,7 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-//        return auth()->user()->id;
+        return $request->all();
         $validate_data = $request->validated();
 
 //        Article::create([
