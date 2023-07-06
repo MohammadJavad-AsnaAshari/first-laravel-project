@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Models\Article;
 use Database\Factories\ArticleFactory;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Validator;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/home", "App\\Http\\Controllers\\HomeController@home");
+Route::get("/home", [HomeController::class, "home"]);
 Route::get("article/{article:slug}", "App\\Http\\Controllers\\ArticleController@single");
 Route::get("/about", "App\\Http\\Controllers\\HomeController@about")->middleware("guest");
 Route::get("/check/database", function () {

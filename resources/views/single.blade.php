@@ -1,5 +1,5 @@
 @extends("layouts.master")
-
+@section("title", $article->title)
 @section("content")
     <h1>Single Page : {{$article->title}}</h1>
     <!-- Featured blog post-->

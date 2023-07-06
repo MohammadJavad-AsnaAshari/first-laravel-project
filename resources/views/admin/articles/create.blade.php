@@ -1,5 +1,6 @@
 @php use App\Models\Category; @endphp
 @extends("layouts.master")
+@section("title", "Create")
 @section("content")
     <h2>Create Article :)</h2>
 

@@ -1,4 +1,5 @@
 @extends("layouts.master")
+@section("title", "Article")
 @section("content")
     <h2>All Article :)</h2>
     <table class="table">
