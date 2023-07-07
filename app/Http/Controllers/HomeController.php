@@ -30,8 +30,9 @@ class HomeController extends Controller
 //        return $categories->articles()->get();
 
 //        Mail::to("mohammadjavadasnaashari@gmail.com")->send(new TestMail("MJ", 2003));
+        $user = auth()->user();
         $articles = Article::orderBy("id", "desc")->get();
-        return view("index", compact("articles"));
+        return view("index", compact("articles", "user"));
     }
 
     public function about()

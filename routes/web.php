@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Models\Article;
 use Database\Factories\ArticleFactory;
@@ -24,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get("/home", [HomeController::class, "home"]);
-Route::get("article/{article:slug}", "App\\Http\\Controllers\\ArticleController@single");
+Route::get("article/{article:slug}", [ArticleController::class, "single"]);
 Route::get("/about", "App\\Http\\Controllers\\HomeController@about")->middleware("guest");
 Route::get("/check/database", function () {
     $articles = Article::all(); //Eloquent Methods

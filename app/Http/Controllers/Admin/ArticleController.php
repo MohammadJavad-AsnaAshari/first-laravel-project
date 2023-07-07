@@ -19,8 +19,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
+        $articles = Article::where("user_id", $user->id)->get();
+
         return view("admin.articles.index", [
-            "articles" => Article::all()
+            "articles" => $articles,
+            "user" => $user
         ]);
     }
 
@@ -32,7 +36,8 @@ class ArticleController extends Controller
 //        if ($_GET) {
 //            dd($_GET);
 //        }
-        return view("admin.articles.create");
+        $user = auth()->user();
+        return view("admin.articles.create", compact("user"));
     }
 
     /**
