@@ -2,6 +2,7 @@
 @section("title", "Article")
 @section("content")
     <h2>All Article :)</h2>
+
     <table class="table">
         <thead>
         <tr>
@@ -22,10 +23,21 @@
                         @method("delete")
                         <button class="btn btn-danger">delete</button>
                     </form>
+                    <form action="/admin/articles/{{$article->id}}/edit" method="get">
+                        @csrf
+{{--                        @method("put")--}}
+                        <button class="btn btn-info">update</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
 
+
         </tbody>
     </table>
+    <br>
+    <p>Create New Article: </p>
+    <a href="/admin/articles/create">
+        <button class="btn btn-success">create</button>
+    </a>
 @endsection
