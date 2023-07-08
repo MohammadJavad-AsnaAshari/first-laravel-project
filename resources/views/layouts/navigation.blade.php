@@ -13,15 +13,21 @@
                     <li class="nav-item"><a class="nav-link" href="/admin/articles/create">Create</a></li>
                 @endauth
             </ul>
-            <ul>
+            <ul class="list-inline">
                 @if(auth()->check())
-                    <a href="/admin/articles" class="btn btn-info">Admin</a>
-                    <form action="{{route("logout")}}" method="post">
-                        @csrf
-                        <button class="btn btn-danger">logout</button>
-                    </form>
+                    <li class="list-inline-item">
+                        <a href="/admin/articles" class="btn btn-info">Admin</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <form action="{{route("logout")}}" method="post">
+                            @csrf
+                            <button class="btn btn-danger">Logout</button>
+                        </form>
+                    </li>
                 @else
-                    <a href="{{route("login")}}" class="btn btn-info">login</a>
+                    <li class="list-inline-item">
+                        <a href="{{route("login")}}" class="btn btn-info">Login</a>
+                    </li>
                 @endif
             </ul>
         </div>
