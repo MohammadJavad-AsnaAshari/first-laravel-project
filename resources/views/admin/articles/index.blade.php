@@ -18,16 +18,17 @@
                 <td>{{$article->id}}</td>
                 <td>{{$article->title}}</td>
                 <td>
-                    <form action="/admin/articles/{{$article->id}}" method="post">
-                        @csrf
-                        @method("delete")
-                        <button class="btn btn-danger">delete</button>
-                    </form>
-                    <form action="/admin/articles/{{$article->id}}/edit" method="get">
-                        @csrf
-{{--                        @method("put")--}}
-                        <button class="btn btn-info">update</button>
-                    </form>
+                    <div class="d-flex">
+                        <form action="/admin/articles/{{$article->id}}" method="post">
+                            @csrf
+                            @method("delete")
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                        <form action="/admin/articles/{{$article->id}}/edit" method="get">
+                            @csrf
+                            <button class="btn btn-info ml-2">Update</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
         @endforeach

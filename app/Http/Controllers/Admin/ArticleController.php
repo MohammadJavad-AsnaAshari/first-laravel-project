@@ -78,8 +78,10 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $user = auth()->user();
         return view("admin.articles.edit", [
-            "article" => $article
+            "article" => $article,
+            "user" => $user
         ]);
     }
 
